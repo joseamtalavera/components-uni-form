@@ -1,38 +1,307 @@
+/* src/App.css */
+
+/* css for App */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #ffcc99, #ffccff);
+}
+
+/* css for form and image container */
+.form-image-container {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Ensure it covers the full viewport height */
+}
+
+.header-container{
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  flex: 3;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding: 20px;
+}
+
+.image-container {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926');
+  background-size: cover;
+}
+
+/* css for filter */
+.filter-products {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: auto;
+  background-color: #fff;
+  border-radius: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-products h2 {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 0px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.filter-group {
+  margin-bottom: 1px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+}
+
+.filter-group label {
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+}
+
+.filter-group label::after {
+  content: '\f078'; /* FontAwesome arrow down */
+  font-family: 'FontAwesome';
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.filter-group.open label::after {
+  content: '\f077'; /* FontAwesome arrow up */
+}
+
+.orange-color {
+  background-color: orange;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.filter-option {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.circle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border: 2px solid orange;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.circle.filled::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  background-color: orange;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item-image {
+  width: 75px;
+  height: 75px;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-name {
+  font-weight: bold;
+  flex: 1;
+}
+
+.item-price {
+  margin-left: auto;
+  color: green;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.item-info2 {
+  margin-bottom: 10px; /* Add margin to separate item features from actions */
+}
+
+.item-actions {
+  display: flex;
+  justify-self: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.item-actions label {
+  margin-right: 10px;
+}
+
+.item-actions input {
+  width: 50px;
+  margin-left: 5px;
+  border: 1px solid orange;
+  border-radius: 5px;
+}
+
+/* css for modal */
+.full-page-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.divider {
+  border: 1px solid orange;
+  margin: 10px 0;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 5px solid orange;
+  color: green;
+  font-size: 3em;
+  text-align: center;
+  vertical-align: middle;
+  margin: 20px auto;
+}
+
+.icon svg {
+  width: 75px;
+  height: 75px;
+  fill: green;
+}
+
+/* css for form */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #ff9800; /* Orange color */
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: green; /* Orange color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.total-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 20px;
+  color: green;
+}
+
+/* css for @media queries */
+
+/* Media query for screens between 1024px and 1500px */
+@media (min-width: 1024px) and (max-width: 1500px) {
+  .price-container {
+    display: flex;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Media query for tablet view (iPad) */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
   }
 }
