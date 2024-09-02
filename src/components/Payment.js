@@ -1,13 +1,7 @@
 import React, {useState} from 'react';
 
 
-const Payment = ({ 
-  total, 
-  togglePaymentOpen, 
-  toggleTypeOpen, 
-  resetAmounts, 
-  toggleConfirmationVisible,
-  goBack }) => {
+const Payment = ({ total, toogleThankPageView, goBack }) => {
   const initialFormData = {
     name: '',
     address: '',
@@ -17,10 +11,6 @@ const Payment = ({
     cvv: '',
   };
 
-  const initialView = 'payment';
-  const initialIsModalOpen = false;
-  const [view, setView] = useState(initialView);
-  const [isModalOpen, setIsModalOpen] = useState(initialIsModalOpen);
   const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
@@ -30,17 +20,8 @@ const Payment = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toggleConfirmationVisible();
+    toogleThankPageView();
   };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setView('payment');
-    setFormData(initialFormData);
-    togglePaymentOpen();
-    toggleTypeOpen();
-    resetAmounts();
-  }
 
   return (
     <div className="container">
@@ -118,8 +99,6 @@ const Payment = ({
           <button type="submit" className="submit-button">Pay</button>
         </div>
       </form>
-   
-  
     </div>
   );
 };

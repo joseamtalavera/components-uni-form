@@ -6,9 +6,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
- 
 }
-
 
 .general-container {
   display: flex;
@@ -51,12 +49,11 @@
   z-index: 2; /* Ensure the text is above the overlay */
 }
 
-
 .intro-container h1 {
   font-size: 2.5rem;
   font-weight: 300;
-  
 }
+
 .intro-container h2 {
   font-size: 2rem;
   font-weight: 300;
@@ -70,33 +67,38 @@
   padding: 100px;
 }
 
-
-/* Add this to your CSS file */
 .proceed-to-payment-button {
-    background-color: green;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: block;
-    width: 100%;
-    text-align: center;
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .proceed-to-payment-button:hover {
-    background-color: darkgreen;
+  background-color: darkgreen;
 }
 
 /* css for filter */
-
 .container {
   position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-bottom: 200px; /* Add padding to the bottom to prevent the footer from overlapping the content */
+}
+
+.select-text {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: green;
 }
 
 .back-button {
@@ -107,7 +109,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   margin-left: 0;
 }
 
@@ -117,6 +119,7 @@
   margin-right: 0px;
   fill: green;
 }
+
 .filter-products {
   display: flex;
   flex-direction: column;
@@ -126,7 +129,6 @@
   background-color: #fff;
   border-radius: 0px;
   width: 100%;
-  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
 }
 
 .filter-products h2 {
@@ -226,6 +228,11 @@
   flex: 1;
 }
 
+.item-features {
+  font-size: 0.8rem;
+  color: #666;
+}
+
 .item-price {
   margin-left: auto;
   color: green;
@@ -241,11 +248,13 @@
   display: flex;
   justify-self: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .item-actions label {
   margin-right: 10px;
+  font-size: 0.9rem;
+
 }
 
 .item-actions input {
@@ -367,18 +376,19 @@
 
 /* css for @media queries */
 
-/* Media query for screens between 1024px and 1500px */
-@media (min-width: 1024px) and (max-width: 1500px) {
-  .price-container {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/* Media query for tablet view (iPad) */
+/* Media query for tablet view (iPad) and below */
 @media (max-width: 1024px) {
-  .main-content {
+  .general-container {
     flex-direction: column;
     align-items: center;
+  }
+
+  .intro-container, .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .intro-container {
+    margin-bottom: 10px;
   }
 }
