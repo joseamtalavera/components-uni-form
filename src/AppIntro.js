@@ -5,6 +5,7 @@ import './App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import SelectYourComponent from './components/SelectYourComponent';
 import Payment from './components/Payment';
+import Confirmation from './components/Confirmation';
 
 const componentsData = [
     { id: 1, name: 'VertexX9 Pro CPU', image: '/VertexX9 Pro.png', features: 'CPU, 8 Cores, 16 Threads, 3.5 GHz', price: 539, type: 'cpu', amount: 0 },
@@ -25,16 +26,40 @@ const AppIntro = () => {
     const [components, setComponents] = useState(componentsData);
     const [isPaymentOpen, setIsPaymentOpen] = useState(false);
     const [selectedComponents, setSelectedComponents] = useState([]);
+    const [isSelectComponentVisible, setIsSelectComponentVisible] = useState(false);
+    const [isPaymentVisible, setIsPaymentVisible] = useState(false);
+    const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
    
     const toggleTypeOpen = () => {
         setIsTypeOpen(!isTypeOpen);
-        setIsPaymentOpen(false);
+        //setIsPaymentOpen(false);
     };
 
     const togglePaymentOpen = () => {
         setIsPaymentOpen(!isPaymentOpen);
-        setIsTypeOpen(false);
+        //setIsTypeOpen(false);
     };
+
+    const toggleSelectComponentVisible = () => {
+        setIsSelectComponentVisible(!isSelectComponentVisible);
+    };
+
+    const togglePaymentFormVisible = () => {
+        setIsPaymentVisible(!isPaymentVisible);
+    };
+
+    const toggleConfirmationVisible = () => {
+        setIsConfirmationVisible(!isConfirmationVisible);
+    };
+
+    const handleCloseConfirmation = () => { 
+        setIsConfirmationVisible(false);
+        setIsPaymentVisible(false);
+    }
+
+    const goBack = () => {
+        setIsPaymentVisible(false);
+    }
 
     const handleTypeClick = (type) => {
         setSelectedType(type);
@@ -124,16 +149,14 @@ const AppIntro = () => {
 
     return (
         <div className="App">
-            <div className="form-image-container">
-               
-                <div className="header-contatiner">
+            <div className="general-container">
+            <div className="intro-container">
                 <h1>New computer components on your mind?</h1>
-                <h2>You've come to the right place!</h2>
-                </div>
+                <h2>You've come to the right place!</h2>  
+            </div>
                 <div className="form-container">
                     <div className="filter-products">
-                       
-                       {/*  <h2>Best Computer Components</h2> */}
+                        {!isPaymentVisible && !isConfirmationVisible ? (
                         <SelectYourComponent
                             isTypeOpen={isTypeOpen}
                             toggleTypeOpen={toggleTypeOpen}
@@ -143,17 +166,24 @@ const AppIntro = () => {
                             handleTypeClick={handleTypeClick}
                             handleAmountChange={handleAmountChange}
                             handleComponentSelect={handleComponentSelect}
-                        />
-                        <Payment 
+
                             total={total} 
                             isPaymentOpen={isPaymentOpen} 
                             togglePaymentOpen={togglePaymentOpen}
-                            toggleTypeOpen={toggleTypeOpen}
                             resetAmounts={resetAmounts}
+                            proceedToPayment={togglePaymentFormVisible}
                         />
+                        ) : isPaymentVisible && !isConfirmationVisible? (
+                        <Payment
+                            total={total}
+                            toggleConfirmationVisible={toggleConfirmationVisible}
+                            goBack={goBack}
+                        />
+                        ) : (
+                            <Confirmation onClose={handleCloseConfirmation}/>
+                        )}
                     </div>
-                </div>
-                <div className="image-container"></div>
+                </div>  
             </div>
         </div>
     );

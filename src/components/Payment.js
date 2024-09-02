@@ -1,7 +1,13 @@
 import React, {useState} from 'react';
-import Confirmation from './Confirmation';
 
-const Payment = ({ total, isPaymentOpen, togglePaymentOpen, toggleTypeOpen, resetAmounts }) => {
+
+const Payment = ({ 
+  total, 
+  togglePaymentOpen, 
+  toggleTypeOpen, 
+  resetAmounts, 
+  toggleConfirmationVisible,
+  goBack }) => {
   const initialFormData = {
     name: '',
     address: '',
@@ -24,10 +30,7 @@ const Payment = ({ total, isPaymentOpen, togglePaymentOpen, toggleTypeOpen, rese
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setView('confirmation');
-      setIsModalOpen(true);
-    }, 1000);
+    toggleConfirmationVisible();
   };
 
   const handleCloseModal = () => {
@@ -40,14 +43,13 @@ const Payment = ({ total, isPaymentOpen, togglePaymentOpen, toggleTypeOpen, rese
   }
 
   return (
-    <div>
-        <div className={`filter-group ${isPaymentOpen? 'open' : ''} orange-color`}>
-        <label htmlFor="type" onClick={togglePaymentOpen}>Payment</label>
-      </div>
-        {isPaymentOpen && (
-      <>
-      {view === 'payment' ? (
-        <>
+    <div className="container">
+      <button className="back-button" onClick={goBack}>
+        <svg className="back-icon" viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+        Back
+      </button>
       <h3 className="total-price">Total Price: {total}€</h3>
       <h3>Enter your payment details</h3>
       <form onSubmit={handleSubmit}>
@@ -116,12 +118,8 @@ const Payment = ({ total, isPaymentOpen, togglePaymentOpen, toggleTypeOpen, rese
           <button type="submit" className="submit-button">Pay</button>
         </div>
       </form>
-    </>
-    ) : null
-    }
-    </>
-    )}
-    {isModalOpen && <Confirmation onClose={handleCloseModal} />}
+   
+  
     </div>
   );
 };

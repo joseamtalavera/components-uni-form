@@ -2,11 +2,9 @@ import React from 'react';
 
 const Confirmation = ({onClose}) => {
   return (
-    <div className="full-page-modal">
-      <div className="modal-content">
-      <h2>Your payment has been processed</h2>
-      <div className="divider"></div>
-      <p>Thank you!</p>
+    <div className="confirmation-container">
+      <h1 >Your payment has been processed</h1>
+      <h1>Thank you!</h1>
       <div className="icon">
         {/* This is an SVG icon */}
         <svg className="icon-svg" viewBox="0 0 24 24" >
@@ -14,7 +12,6 @@ const Confirmation = ({onClose}) => {
         </svg>
         </div>
         <button className="close-button" onClick={onClose}>Close</button>
-      </div>
     </div>
   );
 };

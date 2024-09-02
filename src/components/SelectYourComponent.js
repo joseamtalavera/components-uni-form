@@ -1,14 +1,27 @@
 // SelectYourComponent.js
 
 import React from 'react';
+import Payment from './Payment';
 
-const SelectComponent = ({ isTypeOpen, toggleTypeOpen, components, selectedType, selectedComponents, handleComponentSelect, handleTypeClick, handleAmountChange }) => {
+const SelectComponent = ({ 
+    isTypeOpen, 
+    toggleTypeOpen, 
+    components, 
+    selectedComponents, 
+    handleComponentSelect, 
+    handleAmountChange,
+    total,
+    isPaymentOpen,
+    togglePaymentOpen,
+    resetAmounts,
+    proceedToPayment        
+}) => {
   return (
     <div>
-      <div className={`filter-group ${isTypeOpen ? 'open' : ''} orange-color`}>
+      {/* <div className={`filter-group ${isTypeOpen ? 'open' : ''} orange-color`}>
         <label htmlFor="type" onClick={toggleTypeOpen}>Select your component</label>
-      </div>
-      {isTypeOpen && (
+      </div> */}
+     {/*  {isTypeOpen && ( */}
         <>
           {components.map(component => {
             const isSelected = selectedComponents.some(selected => selected.id === component.id);
@@ -44,11 +57,26 @@ const SelectComponent = ({ isTypeOpen, toggleTypeOpen, components, selectedType,
                     </label>
                   </div>
                 </div>
-              </div>
+              </div>    
             );
           })}
+          <button
+                className="proceed-to-payment-button"
+                onClick={proceedToPayment}
+            >
+                Proceed to Payment
+            </button>
+          {/*  <Payment 
+                total={total} 
+                isPaymentOpen={isPaymentOpen} 
+                togglePaymentOpen={togglePaymentOpen}
+                resetAmounts={resetAmounts}
+            /> */}
+            
         </>
-      )}
+ {/*        
+      )} */}
+     
     </div>
   );
 };

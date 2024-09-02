@@ -6,38 +6,117 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #ffcc99, #ffccff);
+ 
 }
 
-/* css for form and image container */
-.form-image-container {
+
+.general-container {
   display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 100vh; /* Ensure it covers the full viewport height */
+  height: 100vh; /* Ensure the containers take the full height of the viewport */
 }
 
-.header-container{
-  text-align: center;
+.intro-container, .form-container {
+  width: 50%;
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; 
+} 
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('/public/back4.jpg') no-repeat center center; 
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+  position: relative; /* Ensure the overlay is positioned relative to the container */
+}
+
+.intro-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+
+.intro-container h1, .intro-container h2 {
+  position: relative; /* Ensure the text is above the overlay */
+  z-index: 2; /* Ensure the text is above the overlay */
+}
+
+
+.intro-container h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  
+}
+.intro-container h2 {
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 .form-container {
-  flex: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  background-color: #ffffff; /* Optional: Add a background color for better visibility */
+  padding: 100px;
 }
 
-.image-container {
-  flex: 1;
-  background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926');
-  background-size: cover;
+
+/* Add this to your CSS file */
+.proceed-to-payment-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.proceed-to-payment-button:hover {
+    background-color: darkgreen;
 }
 
 /* css for filter */
+
+.container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: green;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 0;
+}
+
+.back-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0px;
+  fill: green;
+}
 .filter-products {
   display: flex;
   flex-direction: column;
@@ -46,7 +125,8 @@
   padding: auto;
   background-color: #fff;
   border-radius: 0px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
 }
 
 .filter-products h2 {
@@ -175,25 +255,22 @@
   border-radius: 5px;
 }
 
-/* css for modal */
-.full-page-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+/* css for confirmation */
+.confirmation-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  height: 100vh; /* Full viewport height to center vertically */
+  text-align: center; /* Center text */
+  font-size: 2.5rem;
+  font-weight: 300;
 }
 
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
+.confirmation-container h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 300;
 }
 
 .close-button {
