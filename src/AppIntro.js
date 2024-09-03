@@ -85,9 +85,9 @@ const AppIntro = () => {
     };
     // The handleComponentClick function is used to update the amount to 0 when a component is deselected.
     const handleComponentClick = (component) => {
-        const clicked = clickedComponents.some(selected => selected.id === component.id);
+        const isclicked = clickedComponents.some(clicked => clicked.id === component.id);
         let updatedclickedComponents;
-        if (clicked) {
+        if (isclicked) {
             updatedclickedComponents = clickedComponents.filter(selected => selected.id !== component.id);
             const updatedComponents = components.map(comp => {
                 if (comp.id === component.id) {

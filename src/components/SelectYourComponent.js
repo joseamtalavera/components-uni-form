@@ -1,15 +1,20 @@
 // SelectYourComponent.js
 
 import React from 'react';
-// The SelectYourComponent receives props from the AppIntro.js component.
+// The SelectYourComponent gets its props from the AppIntro.js component.
+// The {components.map(component => { ... })} generates a list of components.
+// The map() method is called on components to create a list of components.
+// The some() method is called to check if there is an element in the clickedComponents array that has the same id as the component.
+// The handleComponetClick is used to handle the click in the component.
+// The handleAmountChange is used to handle the amount change in the component.
+// In the button element, The proceedToPayment sets the PaymentView to true.
 const SelectYourComponent = ({ components, clickedComponents, handleComponentClick, handleAmountChange, proceedToPayment}) => {
     return (
         <div>
             <h1 className="select-text">Select your components:</h1>
             <>
-
                 {components.map(component => {
-                    const clicked = clickedComponents.some(selected => selected.id === component.id);
+                    const isclicked = clickedComponents.some(clicked => clicked.id === component.id);
                     return (
                         <div key={component.id} className="filter-option" onClick={(e) => {
                             if (e.target.tagName !== 'INPUT') {
@@ -17,7 +22,7 @@ const SelectYourComponent = ({ components, clickedComponents, handleComponentCli
                             }
                             }}
                         >
-                            <span className={`circle ${clicked ? 'filled' : ''}`}></span>
+                            <span className={`circle ${isclicked ? 'filled' : ''}`}></span>
                             <img src={component.image} alt={component.name} className='item-image' />
                             <div className="item-details">
                                 <div className="item-info">
@@ -38,7 +43,7 @@ const SelectYourComponent = ({ components, clickedComponents, handleComponentCli
                                                 e.stopPropagation();
                                                 handleAmountChange(component.id, parseInt(e.target.value));
                                             }}
-                                            disabled={!clicked}
+                                            disabled={!isclicked}
                                         />
                                     </label>
                                 </div>

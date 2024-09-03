@@ -1,8 +1,9 @@
+// Payment.js
+
 import React, {useState} from 'react';
-
-
+// The Payment component gets its props from the AppIntro.js component.
 const Payment = ({ total, toogleThankPageView, goBack }) => {
-  const initialFormData = {
+  const initialDetails = {
     name: '',
     address: '',
     email: '',
@@ -10,14 +11,15 @@ const Payment = ({ total, toogleThankPageView, goBack }) => {
     expiryDate: '',
     cvv: '',
   };
-
-  const [formData, setFormData] = useState(initialFormData);
-
+  // The details state variable is used to store the details of the payment user.
+  const [details, setDetails] = useState(initialDetails);
+  // The handleChange function is used to update the details state variable.
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
   };
-
+  // The handleSubmit calls preventDefault() on e to prevent the page from reloading.
+  // The toogleThankPageView function is called to display the thank you page.
   const handleSubmit = (e) => {
     e.preventDefault();
     toogleThankPageView();
@@ -40,17 +42,17 @@ const Payment = ({ total, toogleThankPageView, goBack }) => {
             type="text"
             id="name"
             name="name"
-            value={formData.name}
+            value={details.name}
             onChange={handleChange}
             required />
         </div>
         <div className="form-group">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">Delivery Address</label>
           <input
             type="text"
             id="address"
             name="address"
-            value={formData.address}
+            value={details.address}
             onChange={handleChange}
             required />
         </div>
@@ -60,7 +62,7 @@ const Payment = ({ total, toogleThankPageView, goBack }) => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
+            value={details.email}
             onChange={handleChange}
             required />
         </div>
@@ -70,7 +72,7 @@ const Payment = ({ total, toogleThankPageView, goBack }) => {
             type="text"
             id="cardNumber"
             name="cardNumber"
-            value={formData.cardNumber}
+            value={details.cardNumber}
             onChange={handleChange}
             required />
         </div>
@@ -80,7 +82,7 @@ const Payment = ({ total, toogleThankPageView, goBack }) => {
             type="date"
             id="expiryDate"
             name="expiryDate"
-            value={formData.expiryDate}
+            value={details.expiryDate}
             onChange={handleChange}
             required />
         </div>
@@ -90,12 +92,11 @@ const Payment = ({ total, toogleThankPageView, goBack }) => {
             type="text"
             id="cvv"
             name="cvv"
-            value={formData.cvv}
+            value={details.cvv}
             onChange={handleChange}
             required />
         </div>
         <div className="form-actions">
-         
           <button type="submit" className="submit-button">Pay</button>
         </div>
       </form>
