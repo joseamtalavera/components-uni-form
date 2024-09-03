@@ -47,7 +47,7 @@ const Payment = ({ total, toogleThankPageView, goBack }) => {
             required />
         </div>
         <div className="form-group">
-          <label htmlFor="address">Delivery Address</label>
+          <label htmlFor="address">Shipping Address</label>
           <input
             type="text"
             id="address"

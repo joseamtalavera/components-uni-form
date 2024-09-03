@@ -1,7 +1,7 @@
 /* src/App.css */
 
-/* css for App */
-.App {
+/* css for AppIntro.js */
+.AppIntro {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh; /* Ensure the containers take the full height of the viewport */
+  height: 100vh; 
 }
 
 .intro-container, .form-container {
@@ -30,7 +30,7 @@
   background-size: cover;
   color: white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
-  position: relative; /* Ensure the overlay is positioned relative to the container */
+  position: relative; 
 }
 
 .intro-container::before {
@@ -45,8 +45,8 @@
 }
 
 .intro-container h1, .intro-container h2 {
-  position: relative; /* Ensure the text is above the overlay */
-  z-index: 2; /* Ensure the text is above the overlay */
+  position: relative;
+  z-index: 2; 
 }
 
 .intro-container h1 {
@@ -63,61 +63,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff; /* Optional: Add a background color for better visibility */
+  background-color: #ffffff; 
   padding: 100px;
-}
-
-.proceed-to-payment-button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.proceed-to-payment-button:hover {
-  background-color: darkgreen;
-}
-
-/* css for filter */
-.container {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 200px; /* Add padding to the bottom to prevent the footer from overlapping the content */
-}
-
-.select-text {
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: green;
-}
-
-.back-button {
-  background: none;
-  border: none;
-  color: green;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-bottom: 50px;
-  margin-left: 0;
-}
-
-.back-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 0px;
-  fill: green;
 }
 
 .filter-products {
@@ -131,48 +78,13 @@
   width: 100%;
 }
 
-.filter-products h2 {
-  background-color: green;
-  color: white;
-  padding: 10px;
-  border-radius: 0px;
-  margin-bottom: 0;
-  margin-top: 0;
-}
+/* css for SelectYouProduct.js */
 
-.filter-group {
-  margin-bottom: 1px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 0px;
-  background-color: #f9f9f9;
-  display: flex;
-  align-items: center;
-}
-
-.filter-group label {
-  margin-right: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-top: 0;
-}
-
-.filter-group label::after {
-  content: '\f078'; /* FontAwesome arrow down */
-  font-family: 'FontAwesome';
-  margin-left: 5px;
-  transition: transform 0.3s ease;
-}
-
-.filter-group.open label::after {
-  content: '\f077'; /* FontAwesome arrow up */
-}
-
-.orange-color {
-  background-color: orange;
-  color: white;
+.select-text {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: green;
 }
 
 .filter-option {
@@ -241,7 +153,7 @@
 }
 
 .item-info2 {
-  margin-bottom: 10px; /* Add margin to separate item features from actions */
+  margin-bottom: 10px; 
 }
 
 .item-actions {
@@ -264,14 +176,115 @@
   border-radius: 5px;
 }
 
-/* css for confirmation */
+.proceed-to-payment-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.proceed-to-payment-button:hover {
+  background-color: darkgreen;
+}
+
+/* css for Payment.js*/
+
+.container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 200px; 
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: green;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-left: 0;
+}
+
+.back-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0px;
+  fill: green;
+}
+
+.total-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 20px;
+  color: green;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #ff9800; 
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: green; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* css for ThankPage.js */
+
 .confirmation-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height to center vertically */
-  text-align: center; /* Center text */
+  height: 100vh; 
+  text-align: center; 
   font-size: 2.5rem;
   font-weight: 300;
 }
@@ -280,21 +293,6 @@
   margin-bottom: 20px;
   font-size: 2.5rem;
   font-weight: 300;
-}
-
-.close-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.divider {
-  border: 1px solid orange;
-  margin: 10px 0;
 }
 
 .icon {
@@ -320,63 +318,17 @@
   fill: green;
 }
 
-/* css for form */
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.form-group input:focus {
-  border-color: #ff9800; /* Orange color */
-  outline: none;
-  box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
-}
-
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.close-button {
   margin-top: 20px;
-}
-
-.submit-button {
-  background-color: green; /* Orange color */
-  color: white;
   padding: 10px 20px;
+  background-color: green;
+  color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
 }
 
-.submit-button:hover {
-  background-color: #45a049;
-}
-
-.total-price {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-top: 20px;
-  color: green;
-}
-
-/* css for @media queries */
-
-/* Media query for tablet view (iPad) and below */
+/* css for @media queries for tablet view (iPad) and below */
 @media (max-width: 1024px) {
   .general-container {
     flex-direction: column;

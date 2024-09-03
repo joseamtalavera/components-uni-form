@@ -1,3 +1,5 @@
+// ThankPage.js 
+
 import React from 'react';
 // The ThankPage component receives the onClose function as a prop from the AppIntro.js component.
 // The onClose will call the handleThankPage function in the AppIntro.js component and set ThankPageView and PaymentView to false.
