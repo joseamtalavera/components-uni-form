@@ -34,9 +34,11 @@ const AppIntro = () => {
         setThankPageView(!ThankPageView);
     };
     // The handleThankPage closes the ThankPage view and takes the user to the main page.
+    // It resets the amounts of the components to 0.
     const handleThankPage = () => { 
         setThankPageView(false);
         setPaymentView(false);
+        resestAmounts();
     }
     // The goBack function takes the user back to the main page when they click from the Payment page.
     const goBack = () => {
@@ -118,6 +120,23 @@ const AppIntro = () => {
         const newTotal = updatedclickedComponents.reduce((acc, comp) => acc + comp.price * comp.amount, 0);
         setTotal(newTotal);
     };
+
+    // The resestAmounts function is responsible for resetting the amount of components to 0.
+    // We use .map() to itarate over the components and set the amount to 0.
+    // It clears the clicked components.
+    // And set the total to 0.
+    const resestAmounts = () => {
+        const updatedComponents = components.map(component => {
+            return {
+                ...component,
+                amount: 0,
+            };
+        });
+        setComponents(updatedComponents);
+        setclickedComponents([]);
+        setTotal(0);
+    };
+
     // A ternary operator is used to conditionally render SelectYourComponent if PaymentView and ThankPageView are false.
     // If PaymentView is true and ThankPage is false, The PaymentView is rendered.
     // If ThankPageView is true, ThankPage is rendered.
